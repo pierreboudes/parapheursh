@@ -50,14 +50,14 @@ Create a copy of file.pdf with a digital signature of its text content
 superimposed as an image
 
 -h        shows this help
--p n      the page where to place the signature default to 1
--k key    the private key file default to ~/.ssh/parapheur.rsa
--x xshift the horizontal shift of the signature from center default 4cm
--y yshift the vertical shift of the signature from center default -6cm
--w width  width of the signature in pixels default 960
+-p n      the page where to place the signature default to ${page}
+-k key    the private key file default to ${key}
+-x xshift the horizontal shift of the signature from center default ${xshift}
+-y yshift the vertical shift of the signature from center default ${yshift}
+-w width  width of the signature in pixels default ${largeur}
 -l width  the same as -w
--g image  the image on which the digital signature will be superimposed
-          default to ~/Documents/img/paris13_aile_960.png
+-g image  the background image on which the digital signature will be printed
+          default to ${grigri}
 
 EOF
     exit 0
