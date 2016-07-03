@@ -1,21 +1,22 @@
-# Parapheursh
+* Parapheursh
 
 
-Produce a digital signature of the text of a pdf file and print it
+Produces a digital signature of the text of a pdf file and prints it
 over a chosen page of the pdf file with a chosen background.
 
-_Don't use it on non-text pdf (digitalized documents)_ Only the text
-as obtained by ~pdftotext~  is signed.
+*Don't use it on non-text pdf (digitalized documents)*. Only the text
+as obtained by ~pdftotext~ is signed.
 
-## Requirements
+** Requirements
 ~apt-get install openssl imagemagick latex~
 
 a pair of asymetric keys as typically obtained by:
 ~cd ~/.ssh/ ; ssh-keygen -f parapheur.rsa~
 
-## Usage
+** Usage
 ~parapheur.sh file.pdf~
-
+| Option      | meaning                                                             |
+|-------------+---------------------------------------------------------------------|
 | =-h=        | shows this help                                                     |
 | =-p n=      | the page where to place the signature default to 1                  |
 | =-k key=    | the private key file default to /Users/boudes/.ssh/parapheur.rsa    |
@@ -24,13 +25,14 @@ a pair of asymetric keys as typically obtained by:
 | =-w width=  | width of the signature in pixels default 960                        |
 | =-l width=  | the same as -w                                                      |
 | =-g image=  | the background image on which the digital signature will be printed |
-|             | default to =~/Documents/img/paris13_aile_960.png=                     |
+|             | (default to =~/Documents/img/paris13_aile_960.png=)                 |
 
 
-## How does it works
+
+** How does it works
 It is a very simple shell script mainly written a sunday morning:
 1. it extracts the text of the pdf file with ~pdftotext~
-2. it hashes and sign this text with ~openssl~using a given private key
+2. it hashes and sign this text with ~openssl~ using a given private key
 3. it creates an image with that signature on a chosen background
    (typically a manuscript signature)
 4. It prints the image on a given page of the pdf file producing a new
